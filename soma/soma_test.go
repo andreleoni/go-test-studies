@@ -3,12 +3,26 @@ package main
 import "testing"
 
 func TestSoma(t *testing.T) {
-	numeros := [5]int{1, 2, 3, 4, 5}
-	resultado := Soma(numeros)
 
-	esperado := 15
+	t.Run("coleção de 5 numeros", func(t *testing.T) {
+		numeros := []int{1, 2, 3, 4, 5}
+		resultado := Soma(numeros)
 
-	if esperado != resultado {
-		t.Errorf("resultado %d, esperado %d, dado %v", resultado, esperado, numeros)
-	}
+		esperado := 15
+
+		if esperado != resultado {
+			t.Errorf("resultado %d, esperado %d, dado %v", resultado, esperado, numeros)
+		}
+	})
+
+	t.Run("coleção de qualquer tamanho", func(t *testing.T) {
+		numeros := []int{1, 2, 3}
+		resultado := Soma(numeros)
+
+		esperado := 6
+
+		if esperado != resultado {
+			t.Errorf("resultado %d, esperado %d, dado %v", resultado, esperado, numeros)
+		}
+	})
 }
