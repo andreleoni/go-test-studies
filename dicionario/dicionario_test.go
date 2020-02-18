@@ -3,9 +3,9 @@ package dicionario
 import "testing"
 
 func TestBusca(t *testing.T) {
-	dicionario := map[string]string{"test": "isso é apenas um teste"}
+	dicionario := Dictionary{"test": "isso é apenas um teste"}
 
-	resultado := Busca(dicionario, "test")
+	resultado := dicionario.Busca("test")
 	esperado := "isso é apenas um teste"
 
 	comparaStrings(t, resultado, esperado)
